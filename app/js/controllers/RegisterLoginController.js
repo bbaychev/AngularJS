@@ -1,25 +1,26 @@
 'use strict';
 
 app.controller('RegisterLoginController',
-    function ($scope, $rootScope, $location, notifyService) {
+    function ($scope, $rootScope, $location, notifyService, authService) {
         $rootScope.pageTitle = "Register/Login";
 
-        $scope.register = function(userData) {
-            authService.register(userData,
+        $scope.register = function(registerData) {
+            authService.register(registerData,
                 function success() {
-                    notifyService.showInfo("User registered successfully");
-                    $location.path("/");
+//                    notifyService.showInfo('User registered successfully');
+                    $location.path('/');
                 },
                 function error(err) {
-                    notifyService.showError("User registration failed", err);
+//                    notifyService.showError("User registration failed", err);
                 }
             );
         };
 
-        $scope.login = function(userData) {
-            authService.login(userData,
+        $scope.login = function(loginData) {
+            authService.login(loginData,
                 function success() {
-                    notifyService.showInfo("Login successful");
+                //    notifyService.showInfo('Login successful');
+                    $location.path('/');
                 },
                 function error(err) {
                     notifyService.showError("Login failed", err);

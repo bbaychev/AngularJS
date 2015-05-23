@@ -2,14 +2,14 @@
     <h2>Login</h2>
     <p>
         <label for="username">Username:</label>
-        <input type="text" id="username" ng-model="userData.username" required />
+        <input type="text" id="username" ng-model="loginData.username" required />
     </p>
     <p>
         <label for="password">Password:</label>
-        <input type="password" id="password" ng-model="userData.password" required />
+        <input type="password" id="password" ng-model="loginData.password" required />
     </p>
     <p>
-        <a ng-click="login(userData)" class="button">Login</a>
+        <a ng-click="login(loginData)" class="button">Login</a>
     <p>
 </div>
 
@@ -17,34 +17,34 @@
     <h2>Register</h2>
     <p>
         <label for="username">Username:</label>
-        <input type="text" id="username" ng-model="userData.username" required />
+        <input type="text" id="username" ng-model="registerData.username" required />
     </p>
     <p>
         <label for="password">Password:</label>
-        <input type="password" id="password" ng-model="userData.password" required />
+        <input type="password" id="password" ng-model="registerData.password" required />
     </p>
     <p>
         <label for="confirmPassword">Confirm password:</label>
-        <input type="password" id="confirmPassword" ng-model="userData.confirmPassword" required />
+        <input type="password" id="confirmPassword" ng-model="registerData.confirmPassword" required />
     </p>
     <p>
         <label for="name">Name:</label>
-        <input type="text" id="name" ng-model="userData.name" required />
+        <input type="text" id="name" ng-model="registerData.name" required />
     </p>
     <p>
         <label for="email">Email:</label>
-        <input type="text" id="email" ng-model="userData.email" required />
+        <input type="text" id="email" ng-model="registerData.email" required />
     </p>
     <p>
         <label for="gender">Gender:</label>
-        <form id="gender" ng-model="userData.genderId">
-            <input type="radio" name="sex" value="Male" checked />Male
-            <input type="radio" name="sex" value="Female" />Female
-            <input type="radio" name="sex" value="Other" />Other
+        <form id="gender" ng-model="registerData.gender">
+            <input type="radio" name="sex" value="1" checked />Male
+            <input type="radio" name="sex" value="2" />Female
+            <input type="radio" name="sex" value="0" />Other
         </form>
     </p> <!-- there can't be a form in a <p> tag -->
     <p>
-        <a ng-click="register(userData)" class="button">Register</a>
+        <a ng-click="register(registerData)" class="button">Register</a>
     <p>
 </div>
 

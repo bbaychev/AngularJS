@@ -1,10 +1,18 @@
 'use strict';
 
 app.controller('HomeController',
-    function ($scope, notifyService, pageSize) {
-        $scope.adsParams = {
-            'startPage' : 1,
-            'pageSize' : pageSize
+    function ($scope, $location, notifyService, authService) {
+        $scope.logout = function () {
+            authService.logout(
+                function success() {
+                    //notifyService.showInfo("Logout successful");
+                    $location.page('/reglog');
+                },
+                function error(err) {
+                    console.log('something\'s not right here');
+                    //notifyService.showError("Logout not successful", err);
+                }
+            );
         };
 
         //$scope.reloadAds = function() {

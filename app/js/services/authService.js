@@ -3,11 +3,11 @@
 app.factory('authService',
     function ($http, baseServiceUrl) {
         return {
-            login: function(userData, success, error) {
+            login: function(loginData, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/api/users/Login',
-                    data: userData
+                    url: baseServiceUrl + '/api/users/login',
+                    data: loginData
                 };
                 $http(request).success(function(data) {
                     sessionStorage['currentUser'] = JSON.stringify(data);
@@ -15,11 +15,11 @@ app.factory('authService',
                 }).error(error);
             },
 
-            register: function(userData, success, error) {
+            register: function(registerData, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/api/users/Register',
-                    data: userData
+                    url: baseServiceUrl + '/api/users/register',
+                    data: registerData
                 };
                 $http(request).success(function(data) {
                     sessionStorage['currentUser'] = JSON.stringify(data);
@@ -30,7 +30,8 @@ app.factory('authService',
             logout: function(success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/api/users/Logout'
+                    url: baseServiceUrl + '/api/users/logout',
+                    headers: this.getAuthHeaders()
                 };
                 //TODO: Check if this whole things even works
                 $http(request).success(function(success) {
