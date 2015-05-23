@@ -1,18 +1,17 @@
 'use strict';
 
-var app = angular.module('app', ['ui.bootstrap.pagination']);
+var app = angular.module('app', ['ngRoute']);
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
-app.constant('pageSize', 5);
 
 app.config(function ($routeProvider) {
 
-    $routeProvider.when('/', {
-        templateUrl: 'templates/home.html',
-        controller: 'HomeController'
-    });
+    //$routeProvider.when('/', {
+    //    templateUrl: 'templates/home.html',
+    //    controller: 'HomeController'
+    //});
 
-    $routeProvider.when('/reglog', {
+    $routeProvider.when('/', {
         templateUrl: 'templates/register-login.html',
         controller: 'RegisterLoginController'
     });
@@ -62,7 +61,7 @@ app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
         if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
             // Authorization check: anonymous site visitors cannot access user routes
-            $location.path("/reglog");
+            $location.path("/");
         }
         //TODO: There's work to be done here
         //if($location.path().indexOf("/user/ads") != -1) {

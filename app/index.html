@@ -9,12 +9,46 @@
     <title>FriendFace</title>
 </head>
 <body>
+<!-- not yet
+<header id="app-header">
+    <div ng-include="'templates/partial/header.html'"></div>
+</header>
+-->
+<div id='app-content'>
+<!-- not yet    <div class='col-md-2 sidebar'>
+        <div ng-include="'templates/partial/left-sidebar.html'"></div>
+    </div>
+-->
+    <div class='col-md-8' ng-view>
+    </div>
+<!-- not yet
+    <div class='col-md-2 sidebar' ng-controller="RightSidebarController">
+        <div ng-include="'templates/partial/right-sidebar.html'"></div>
+    </div>-->
+</div>
+<!-- not yet
+<footer id="app-footer">
+    &copy; 2014 by Software University Foundation, No Rights Reserved
+</footer>-->
 
 <!-- Load app libraries -->
 <script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
 <script src="lib/jquery/jquery-2.1.4.js"></script>
 <script src="lib/jquery.noty/jquery.noty.js"></script>
 <script src="lib/bootstrap/bootstrap-v3.3.4.js"></script>
 <script src="lib/ui.bootstrap/ui.bootstrap.pagination-0.12.0.js"></script>
+
+<!-- Load app source code: main script, services, controllers, etc. -->
+<script src="js/app.js"></script>
+
+<script src="js/services/authService.js"></script>
+<script src="js/services/notifyService.js"></script>
+
+<script src="js/controllers/AppController.js"></script>
+<script src="js/controllers/HomeController.js"></script>
+<script src="js/controllers/RegisterLoginController.js"></script>
+
 </body>
+
 </html>
