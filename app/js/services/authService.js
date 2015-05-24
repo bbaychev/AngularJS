@@ -127,6 +127,6 @@ app.factory('authService',
                 };
                 $http(request).success(success).error(error);
             }
-        }
+        };
     }
 );

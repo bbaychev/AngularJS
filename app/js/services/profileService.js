@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('authService',
+app.factory('profileService',
     function ($http, baseServiceUrl) {
         return {
             getProfile: function(success, error) {
@@ -88,6 +88,6 @@ app.factory('authService',
                 };
                 $http(request).success(success).error(error);
             }
-        }
+        };
     }
 );
