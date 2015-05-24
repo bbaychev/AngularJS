@@ -13,68 +13,65 @@ app.factory('postService',
                 $http(request).success(success).error(error);
             },
 
-            getPostById: function(postData, success, error) {
+            getPostById: function(postId, success, error) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId,
-                    data: postData.postId,
+                    url: baseServiceUrl + '/api/Posts/' + postId,
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
 
-            updatePostById: function(postData, success, error) {
+            updatePostById: function(postData, postId, success, error) {
                 var request = {
                     method: 'PUT',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId,
-                    data: postData.postId,
-                    headers: this.getAuthHeaders()
-                };
-                $http(request).success(success).error(error);
-            },
-
-            deletePostById: function(postData, success, error) {
-                var request = {
-                    method: 'DELETE',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId,
+                    url: baseServiceUrl + '/api/Posts/' + postId,
                     data: postData,
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
 
-            getPostLikes: function(postData, success, error) {
-                var request = {
-                    method: 'GET',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId + '/likes',
-                    headers: this.getAuthHeaders()
-                };
-                $http(request).success(success).error(error);
-            },
-
-            previewPostLikes: function(postData, success, error) {
-                var request = {
-                    method: 'GET',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId + '/likes/preview',
-                    headers: this.getAuthHeaders()
-                };
-                $http(request).success(success).error(error);
-            },
-
-            likePost: function(postData, success, error) {
-                var request = {
-                    method: 'POST',
-                    url: baseServiceUrl + '/api/' + postData.postId + '/likes',
-                    headers: this.getAuthHeaders()
-                };
-                $http(request).success(success).error(error);
-            },
-
-            unlikePost: function(postData, success, error) {
+            deletePostById: function(postId, success, error) {
                 var request = {
                     method: 'DELETE',
-                    url: baseServiceUrl + '/api/Posts/' + postData.postId + '/likes',
-                    data: data.status,
+                    url: baseServiceUrl + '/api/Posts/' + postId,
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getPostLikes: function(postId, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/Posts/' + postId + '/likes',
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            previewPostLikes: function(postId, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/Posts/' + postId + '/likes/preview',
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            likePost: function(postId, success, error) {
+                var request = {
+                    method: 'POST',
+                    url: baseServiceUrl + '/api/' + postId + '/likes',
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            unlikePost: function(postId, success, error) {
+                var request = {
+                    method: 'DELETE',
+                    url: baseServiceUrl + '/api/Posts/' + postId + '/likes',
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);

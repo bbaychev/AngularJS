@@ -69,21 +69,19 @@ app.factory('profileService',
                 $http(request).success(success).error(error);
             },
 
-            updateFriendRequest: function(data, requestId, success, error) {
+            updateFriendRequest: function(status, requestId, success, error) {
                 var request = {
                     method: 'PUT',
-                    url: baseServiceUrl + '/api/me/requests/' + requestId + '?status=' + data.status,
-                    data: data.status,
+                    url: baseServiceUrl + '/api/me/requests/' + requestId + '?status=' + status,
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
 
-            sendFriendRequest: function(data, success, error) {
+            sendFriendRequest: function(username, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/api/me/requests/' + data.username,
-                    data: data.username,
+                    url: baseServiceUrl + '/api/me/requests/' + username,
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
