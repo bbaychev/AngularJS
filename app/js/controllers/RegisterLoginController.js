@@ -1,13 +1,13 @@
 'use strict';
 
 app.controller('RegisterLoginController',
-    function ($scope, $rootScope, $location, notifyService, authService) {
+    function ($scope, $rootScope, $location, authService) {
         $rootScope.pageTitle = "Register/Login";
 
         $scope.register = function(registerData) {
             authService.register(registerData,
                 function success() {
-                    $location.page('/');
+                    $location.path('/');
                 },
                 function error(err) {
                 }
@@ -17,7 +17,7 @@ app.controller('RegisterLoginController',
         $scope.login = function(loginData) {
             authService.login(loginData,
                 function success() {
-                    $location.page('/');
+                    $location.path('/');
                 },
                 function error(err) {
                 }
@@ -27,7 +27,7 @@ app.controller('RegisterLoginController',
         $scope.logout = function() {
             authService.logout(function success() {
                 sessionStorage.clear();
-                $location.page('/reglog');
+                $location.path('/reglog');
             }, function error(err) {
 
             });
