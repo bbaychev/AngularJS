@@ -55,19 +55,16 @@ app.config(function ($routeProvider) {
     //    controller: 'UserEditProfileController'
     //});
 
+    $routeProvider.otherwise({redirectTo: '/reglog'});
+
 });
 
 app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
-        if ($location.path().indexOf("/user/") != -1 && !authService.isLoggedIn()) {
-            // Authorization check: anonymous site visitors cannot access user routes
+        if (!authService.isLoggedIn()) {
+            // Authorization check: anonymous site visitors cannot access the site
             $location.path('/reglog');
         }
         //TODO: There's work to be done here
-        //if($location.path().indexOf("/user/ads") != -1) {
-        //    $rootScope.showStatuses = true;
-        //} else {
-        //    $rootScope.showStatuses = false;
-        //}
     });
 });

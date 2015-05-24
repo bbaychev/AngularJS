@@ -73,7 +73,7 @@ app.factory('authService',
                 return headers;
             },
 
-            getUserProfile: function(username, success, error) {
+            previewUserProfile: function(username, success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/users/' + username + '/preview',
@@ -82,21 +82,47 @@ app.factory('authService',
                 $http(request).success(success).error(error);
             },
 
-            editProfile: function(userData, success, error) {
+            searchUserProfile: function(searchTerm, success, error) {
                 var request = {
-                    method: 'PUT',
-                    url: baseServiceUrl + '/api/me',
-                    data: userData,
+                    method: 'GET',
+                    url: baseServiceUrl + 'api/users/search?searchTerm=' + searchTerm,
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);
             },
 
-            changePass: function(passData, success, error) {
+            getUserProfile: function(username, success, error) {
                 var request = {
-                    method: 'PUT',
-                    url: baseServiceUrl + '/api/me/ChangePassword',
-                    data: passData,
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + username,
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getUserWall: function(username, startPostId, pageSize, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + username + 'wall?StartPostId=' + startPostId +
+                        '&PageSize=' + pageSize,
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            previewUserFriends: function(username, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + username + '/friends/preview',
+                    headers: this.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+
+            getUserFriends: function(username, success, error) {
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/users/' + username + '/friends',
                     headers: this.getAuthHeaders()
                 };
                 $http(request).success(success).error(error);

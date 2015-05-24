@@ -7,11 +7,9 @@ app.controller('RegisterLoginController',
         $scope.register = function(registerData) {
             authService.register(registerData,
                 function success() {
-//                    notifyService.showInfo('User registered successfully');
                     $location.path('/');
                 },
                 function error(err) {
-//                    notifyService.showError("User registration failed", err);
                 }
             );
         };
@@ -19,13 +17,20 @@ app.controller('RegisterLoginController',
         $scope.login = function(loginData) {
             authService.login(loginData,
                 function success() {
-                //    notifyService.showInfo('Login successful');
                     $location.path('/');
                 },
                 function error(err) {
-                    notifyService.showError("Login failed", err);
                 }
             );
+        };
+
+        $scope.logout = function() {
+            authService.logout(function success() {
+                sessionStorage.clear();
+                $location.path('/reglog');
+            }, function error(err) {
+
+            });
         }
     }
 );
