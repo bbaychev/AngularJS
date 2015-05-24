@@ -33,7 +33,6 @@ app.factory('authService',
                     url: baseServiceUrl + '/api/users/logout',
                     headers: this.getAuthHeaders()
                 };
-                //TODO: Check if this whole things even works
                 $http(request).success(function(success) {
                     delete sessionStorage['currentUser'];
                 }).error(error);

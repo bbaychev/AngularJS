@@ -7,7 +7,7 @@ app.controller('RegisterLoginController',
         $scope.register = function(registerData) {
             authService.register(registerData,
                 function success() {
-                    $location.path('/');
+                    $location.page('/');
                 },
                 function error(err) {
                 }
@@ -17,7 +17,7 @@ app.controller('RegisterLoginController',
         $scope.login = function(loginData) {
             authService.login(loginData,
                 function success() {
-                    $location.path('/');
+                    $location.page('/');
                 },
                 function error(err) {
                 }
@@ -27,10 +27,10 @@ app.controller('RegisterLoginController',
         $scope.logout = function() {
             authService.logout(function success() {
                 sessionStorage.clear();
-                $location.path('/reglog');
+                $location.page('/reglog');
             }, function error(err) {
 
             });
-        }
+        };
     }
 );
