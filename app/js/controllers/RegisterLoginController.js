@@ -23,14 +23,5 @@ app.controller('RegisterLoginController',
                 }
             );
         };
-
-        $scope.logout = function() {
-            authService.logout(function success() {
-                sessionStorage.clear();
-                $location.path('/reglog');
-            }, function error(err) {
-
-            });
-        };
     }
 );

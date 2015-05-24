@@ -16,45 +16,6 @@ app.config(function ($routeProvider) {
         controller: 'RegisterLoginController'
     });
 
-    //$routeProvider.when('/login', {
-    //    templateUrl: 'templates/login.html',
-    //    controller: 'LoginController'
-    //});
-    //
-    //$routeProvider.when('/register', {
-    //    templateUrl: 'templates/register.html',
-    //    controller: 'RegisterController'
-    //});
-
-    //$routeProvider.when('/user/ads/publish', {
-    //    templateUrl: 'templates/user/publish-new-ad.html',
-    //    controller: 'UserPublishNewAdController'
-    //});
-    //
-    //$routeProvider.when('/user/ads', {
-    //    templateUrl: 'templates/user/user-ads.html',
-    //    controller: 'UserAdsController'
-    //});
-    //
-    //$routeProvider.when('/user/ads/:id/editAd', {
-    //    templateUrl: 'templates/user/edit-ad.html',
-    //    controller: 'UserEditAdController'
-    //});
-    //
-    //$routeProvider.when('/user/ads/:id/deleteAd', {
-    //    templateUrl: 'templates/user/delete-ad.html',
-    //    controller: 'UserDeleteAdController'
-    //});
-    //
-    //$routeProvider.otherwise(
-    //    { redirectTo: '/' }
-    //);
-    //
-    //$routeProvider.when('/user/profile', {
-    //    templateUrl: 'templates/user/edit-profile.html',
-    //    controller: 'UserEditProfileController'
-    //});
-
     $routeProvider.otherwise({redirectTo: '/reglog'});
 
 });
@@ -62,9 +23,8 @@ app.config(function ($routeProvider) {
 app.run(function ($rootScope, $location, authService) {
     $rootScope.$on('$locationChangeStart', function (event) {
         if (!authService.isLoggedIn()) {
-            // Authorization check: anonymous site visitors cannot access the site
+            // Authorization check: anonymous site visitors cannot access
             $location.path('/reglog');
         }
-        //TODO: There's work to be done here
     });
 });
